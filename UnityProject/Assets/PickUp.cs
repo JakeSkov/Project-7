@@ -13,27 +13,30 @@ public class PickUp : MonoBehaviour {
 
     public Transform pickUpTransform;
     bool hasFlag = false;
+    GameObject flagHeld;
     int score = 0;
     #endregion
-
-    void Start() { }
-
-    void Update() { }
 
     void OnTriggerEnter(Collider other) {
 
         switch (other.tag) {
             case "Flag":
-                other.transform.parent = this.transform;
-                other.transform.position = pickUpTransform.position;
+                flagHeld = other.gameObject;
+                flagHeld.transform.parent = this.transform;
+                flagHeld.transform.position = pickUpTransform.position;
                 hasFlag = true;
                 break;
             case "PickUpObject":
                 print("picked up " + other.name);
+                Destroy(other.gameObject);
                 break;
             case "FlagDrop":
-                hasFlag = false;
-                score++;
+                if (hasFlag) {
+                    hasFlag = false;
+                    Destroy(flagHeld);
+                    score++;
+                    print("score: " + score);
+                }
                 break;
         }
     }

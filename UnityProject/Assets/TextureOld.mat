@@ -26,7 +26,7 @@ Material:
       data:
         first:
           name: _Attenuation
-        second: 0
+        second: 1.26999998
       data:
         first:
           name: _Invert
@@ -35,4 +35,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 1, g: .740999997, b: .102941155, a: 1}

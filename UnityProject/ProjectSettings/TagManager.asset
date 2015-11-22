@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - PickUpObject
   - Flag
+  - FlagDrop
   layers:
   - Default
   - TransparentFX
