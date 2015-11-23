@@ -21,10 +21,12 @@ public class PickUp : MonoBehaviour {
 
         switch (other.tag) {
             case "Flag":
-                flagHeld = other.gameObject;
-                flagHeld.transform.parent = this.transform;
-                flagHeld.transform.position = pickUpTransform.position;
-                hasFlag = true;
+                if (!hasFlag) {
+                    flagHeld = other.gameObject;
+                    flagHeld.transform.parent = this.transform;
+                    flagHeld.transform.position = pickUpTransform.position;
+                    hasFlag = true;
+                }
                 break;
             case "PickUpObject":
                 print("picked up " + other.name);
